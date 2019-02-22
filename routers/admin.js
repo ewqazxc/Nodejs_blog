@@ -81,7 +81,7 @@ router.get(
         var page = Number(req.query.page) || 1;
         var limit = 2;
         var pages = 0;
-        Category.count().then((count) => {
+        Category.countDocuments().then((count) => {
             pages = Math.ceil(count / limit);
             page = Math.min(page, pages);
             page = Math.max(page, 1);
@@ -262,7 +262,7 @@ router.get(
         var page = Number(req.query.page) || 1;
         var limit = 2;
         var pages = 0;
-        Content.count().then(function (count) {
+        Content.countDocuments().then(function (count) {
             pages = Math.ceil(count / limit);
             page = Math.min(page, pages);
             page = Math.max(page, 1);
