@@ -35,7 +35,19 @@
         </div>
         {% endif %}
         <!-- <p style="text-align:left;">还没有留言</p> -->
-        <ul style="text-align: left;" class="megList"></ul>
+        <ul style="text-align: left;" class="megList">
+                <!-- {% if content.comments.length>0 %}
+                {% for comment in content.comments %}
+                <li style="padding: 10px;border: 1px solid;margin-bottom: 20px;">
+                        <div style="font-weight: bold;justify-content: space-between;display: flex;">
+                            <p>{{comment.userName}}</p>
+                            <p>{{comment.postTime|date('Y-m-d H:i:s',-8*60)}}</p>
+                        </div>
+                    <div>{{comment.content}}</div>
+                </li>
+                {% endfor %}
+                {% endif %} -->
+        </ul>
         <div class="a-page">
             <span class="pre">
                 <a href="javascript:void(0)">上一页</a>

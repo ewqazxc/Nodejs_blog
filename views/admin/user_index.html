@@ -2,7 +2,7 @@
 
 {% block main %}
 	<div class="a-userNav">
-		<span><a href="/">管理首页</a></span>
+		<span><a href="/admin">管理首页</a></span>
 		<span> / </span>
 		<span>用户列表</span>
 	</div>
@@ -12,19 +12,33 @@
 			<th>ID</th>
 			<th>用户名</th>
 			<th>密码</th>
-			<th>是否是管理员</th>
+			<th>是否是管理员</th> 
+			<th>操作</th>
 		</tr>
 	</thead>
 	<tbody>
 		{% for user in users %}
 		<tr>
 			<td>{{user._id.toString()}}</td>
-			<td>{{user.username}}</td>
-			<td>{{user.password}}</td>
+			<td>{{user.userName}}</td>
+			<!-- {{loop.index0}} -->
+			<td>{{user.passWord}}</td>
 			<td>
 				{% if user.isAdmin %}
 				是
+				{% else %}
+				否
 				{% endif %}
+				
+			</td>
+			<td>
+				<button onclick="setAdmin('{{user.userName}}','{{user.isAdmin}}')">
+						{% if !user.isAdmin %}
+						设为管理员
+						{% else %}
+						设为普通用户
+						{% endif %}
+				</button>
 			</td>
 		</tr>
 		{% endfor %}
